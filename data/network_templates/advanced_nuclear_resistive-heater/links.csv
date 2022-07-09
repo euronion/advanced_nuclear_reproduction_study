@@ -1,0 +1,5 @@
+name,bus0,bus1,p_nom_extendable
+battery charge,electricity,battery,True
+battery discharge,battery,electricity,True
+nuclear generator,heat,electricity,True
+resistive heater,electricity,heat,TRUE

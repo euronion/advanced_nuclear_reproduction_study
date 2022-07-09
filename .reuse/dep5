@@ -1,0 +1,24 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: duan_advanced_nuclear_2021
+Upstream-Contact: Johannes Hampp <johannes.hampp@zeu.uni-giessen.de>
+
+# ipynb files are JSON format and can currently not be parsed by REUSE
+Files: *.ipynb
+Copyright: 2022 Johannes Hampp
+License: MIT
+
+Files: config/*
+Copyright: 2022 Johannes Hampp
+License: CC-BY-4.0
+
+Files: data/*
+Copyright: 2022 Johannes Hampp
+License: CC-BY-4.0
+
+Files: envs/*
+Copyright: 2022 Johannes Hampp
+License: CC0-1.0
+
+Files: scenarios/*
+Copyright: 2022 Johannes Hampp
+License: CC-BY-4.0

@@ -1,0 +1,95 @@
+name,parameter,unit,value,note
+discount rate,discount rate,%/a,7,
+reference emissions,reference emissions,t_CO2/MWh_e,0.49,Reference specific emissions to calculate the CO2 constraint. In the original model by Duan et al. these are the specific emissions for electricity generation from natural gas.
+wind,investment,USD/kW_e,1319,
+wind,FOM,USD/kW_e/a,26.22,
+wind,lifetime,years,25,
+wind,VOM,USD/MWh_e,0,
+wind,fuel cost,USD/MWh_e,0,
+wind,efficiency,p.u.,1,
+solar,investment,USD/kW_e,1331,
+solar,FOM,USD/kW_e/a,15.19,
+solar,lifetime,years,25,
+solar,VOM,USD/MWh_e,0,
+solar,fuel cost,USD/MWh_e,0,
+solar,efficiency,p.u.,1,
+battery storage,investment,USD/kWh_e,365.77,
+battery storage,FOM,USD/kW_e/a,12.32,
+battery storage,lifetime,years,10,
+battery storage,VOM,USD/MWh_e,0,
+battery storage,fuel cost,USD/MWh_e,0,
+battery storage,efficiency,p.u.,0.95,
+battery storage,standing losses,p.u./snapshot,0.0000001,
+battery charge,investment,USD/kW_e,0,
+battery charge,FOM,USD/kW_e/a,0,
+battery charge,lifetime,years,0,
+battery charge,VOM,USD/MWh_e,0,
+battery charge,fuel cost,USD/MWh_e,0,
+battery charge,efficiency,p.u.,0.9747,"(Dis-)charge efficiency of battery inverter. = SQRT(.95) in either direction, i.e. RTE of 95% ."
+battery discharge,investment,USD/kW_e,0,
+battery discharge,FOM,USD/kW_e/a,0,
+battery discharge,lifetime,years,0,
+battery discharge,VOM,USD/MWh_e,0,
+battery discharge,fuel cost,USD/MWh_e,0,
+battery discharge,efficiency,p.u.,0.9747,"(Dis-)charge efficiency of battery inverter. = SQRT(.95) in either direction, i.e. RTE of 95% ."
+nuclear,investment,USD/kW_e,4000,
+nuclear,FOM,USD/kW_e/a,80,
+nuclear,lifetime,years,40,
+nuclear,VOM,USD/MWh_e,2.36,
+nuclear,fuel cost,USD/MWh_e,6.8,
+nuclear,efficiency,p.u.,0.326,
+nuclear heat source,investment,USD/kW_th,1654.59,
+nuclear heat source,FOM,USD/kW_th/a,60.51,
+nuclear heat source,lifetime,years,40,
+nuclear heat source,VOM,USD/MWh_th,0.6181,
+nuclear heat source,fuel cost,USD/MWh_th,2.5213,Based on ratio nuclear reactor (4462 USD/kWe) vs generator (1854 USD/kWe) of total cost (6317 USD/kWe) and VOM of Advanced nuclear case (2.36 USD/Mwh_e)
+nuclear heat source,efficiency,p.u.,1,
+nuclear heat storage,investment,USD/kWh_th,27.61,
+nuclear heat storage,FOM,USD/kWh_th/a,0,
+nuclear heat storage,lifetime,years,30,
+nuclear heat storage,VOM,USD/MWh_th,0,
+nuclear heat storage,fuel cost,USD/MWh_th,0,
+nuclear heat storage,standing losses,p.u./snapshot,0.00000261531,
+nuclear generator,investment,USD/kW_e,1854.77,
+nuclear generator,FOM,USD/kW_e/a,33.66,
+nuclear generator,lifetime,years,30,
+nuclear generator,VOM,USD/MWh_e,0.6929,Based on ratio nuclear reactor (4462 USD/kWe) vs generator (1854 USD/kWe) of total cost (6317 USD/kWe) and VOM of Advanced nuclear case (2.36 USD/Mwh_e)
+nuclear generator,fuel cost,USD/MWh_e,0,
+nuclear generator,efficiency,p.u.,0.3708,
+natural gas,investment,USD/kW_e,954,
+natural gas,FOM,USD/kW_e/a,12.15,
+natural gas,lifetime,years,30,
+natural gas,VOM,USD/MWh_e,1.86,
+natural gas,fuel cost,USD/MWh_e,19.11,
+natural gas,efficiency,p.u.,0.5365,Fuel (“carrier”: natural gas) to electricity efficiency.
+natural gas with CCS,investment,USD/kW_e,2569,
+natural gas with CCS,FOM,USD/kW_e/a,27.48,
+natural gas with CCS,lifetime,years,30,
+natural gas with CCS,VOM,USD/MWh_e,5.82,
+natural gas with CCS,fuel cost,USD/MWh_e,21.372,
+natural gas with CCS,efficiency,p.u.,1.5464,"Modified efficiency to represent lower CO2 emissions: For a quick & dirty implementation of lower CO2 emissions from NG+CCS power plant assume a higher “natural gas to electricity” efficiency, such that electricity generation happens at lower specific emissions (original specific emissions of NG without CCS: 0.47 t_CO2 / MWh_e; with CCS: 0.17 t_CO2/Mwh_e)."
+electrolysis,investment,USD/kW_e,1000,Tom added assumptions
+electrolysis,FOM,USD/kW_e/a,20,Tom added assumptions
+electrolysis,lifetime,years,20,Tom added assumptions
+electrolysis,VOM,USD/MWh_e,0,Tom added assumptions
+electrolysis,fuel cost,USD/MWh_e,0,Tom added assumptions
+electrolysis,efficiency,p.u.,0.7,Tom added assumptions
+fuel cell,investment,USD/kW_e,800,Tom added assumptions
+fuel cell,FOM,USD/kW_e/a,16,Tom added assumptions
+fuel cell,lifetime,years,20,Tom added assumptions
+fuel cell,VOM,USD/MWh_e,0,Tom added assumptions
+fuel cell,fuel cost,USD/MWh_e,0,Tom added assumptions
+fuel cell,efficiency,p.u.,0.6,Tom added assumptions
+salt cavern,investment,USD/kWh_e,1,Tom added assumptions
+salt cavern,FOM,USD/kW_e/a,0.03,Tom added assumptions
+salt cavern,lifetime,years,30,Tom added assumptions
+salt cavern,VOM,USD/MWh_e,0,Tom added assumptions
+salt cavern,fuel cost,USD/MWh_e,0,Tom added assumptions
+salt cavern,efficiency,p.u.,1,Tom added assumptions
+salt cavern,standing losses,p.u./snapshot,0,Tom added assumptions
+load shedding,investment,USD/kW_e,0,
+load shedding,FOM,USD/kW_e/a,0,
+load shedding,lifetime,years,0,
+load shedding,VOM,USD/MWh_e,0,
+load shedding,fuel cost,USD/MWh_e,10000,
+load shedding,efficiency,p.u.,1,

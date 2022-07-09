@@ -1,0 +1,119 @@
+# SPDX-FileCopyrightText: 2022 Johannes Hampp <johannes.hampp@zeu.uni-giessen.de>
+#
+# SPDX-License-Identifier: MIT
+
+from snakemake.utils import Paramspace
+import pandas as pd
+
+
+configfile: "config/config.default.yaml"
+
+
+include: "rules/common.smk"
+include: "rules/system_costs.smk"
+include: "rules/pgp_sensitivity.smk"
+include: "rules/validation.smk"
+
+
+wildcard_constraints:
+    template="\w+",
+    technologydata="[-\w]+",
+    country="[A-Z]{2}",
+    years="\d{4}(-\d{4})?",
+    co2limit="\d(\.|e-)?\d*",
+
+
+scenarios = Paramspace(pd.read_csv("scenarios/default.csv", dtype=str), param_sep="_")
+
+
+rule all_scenarios:
+    input:
+        expand("results/{params}/network.nc", params=scenarios.instance_patterns),
+
+
+rule create_network:
+    input:
+        network_template="data/network_templates/{template}/",
+    output:
+        network="resources/create_network/template_{template}/years_{years}/network.nc",
+    threads: 1
+    notebook:
+        "notebooks/create_network.py.ipynb"
+
+
+def get_demand_file(wildcards):
+    country_name = FullDemandList[wildcards.country]
+    return f"Model and input data/Input_Data/Lei_AdvNuc/demand_series_Dan_normalized_to_1_mean_{country_name}.csv"
+
+
+rule attach_demand:
+    input:
+        network="resources/create_network/template_{template}/years_{years}/network.nc",
+        demand=get_demand_file,
+    output:
+        network="resources/attach_demand/template_{template}/years_{years}/country_{country}/network.nc",
+    threads: 1
+    script:
+        "scripts/attach_demand.py"
+
+
+rule attach_supply:
+    input:
+        network="resources/attach_demand/template_{template}/years_{years}/country_{country}/network.nc",
+        wind="Model and input data/Input_Data/Lei_AdvNuc/20201218_{country}_mthd3_wind.csv",
+        solar="Model and input data/Input_Data/Lei_AdvNuc/20201218_{country}_mthd3_solar.csv",
+    output:
+        network="resources/attach_supply/template_{template}/years_{years}/country_{country}/network.nc",
+    threads: 1
+    script:
+        "scripts/attach_supply.py"
+
+
+rule attach_technologydata:
+    input:
+        network="resources/attach_supply/template_{template}/years_{years}/country_{country}/network.nc",
+        technologydata="data/technologydata/{technologydata}.csv",
+    output:
+        network="resources/attach_technologydata/template_{template}/years_{years}/country_{country}/technologydata_{technologydata}/network.nc",
+    threads: 1
+    notebook:
+        "notebooks/attach_technologydata.py.ipynb"
+
+
+rule attach_co2limit:
+    input:
+        network="resources/attach_technologydata/template_{template}/years_{years}/country_{country}/technologydata_{technologydata}/network.nc",
+        technologydata="data/technologydata/{technologydata}.csv",
+    output:
+        network="resources/attach_co2limit/template_{template}/years_{years}/country_{country}/technologydata_{technologydata}/co2limit_{co2limit}/network.nc",
+    threads: 1
+    notebook:
+        "notebooks/attach_co2limit.py.ipynb"
+
+
+rule solve_network:
+    input:
+        network="resources/attach_co2limit/template_{template}/years_{years}/country_{country}/technologydata_{technologydata}/co2limit_{co2limit}/network.nc",
+    output:
+        # network=f"results/{paramspace.wildcard_pattern}/network.nc"
+        network="results/template_{template}/years_{years}/country_{country}/technologydata_{technologydata}/co2limit_{co2limit}/network.nc",
+    threads: 4
+    script:
+        "scripts/solve_network.py"
+
+
+# Extract relevant results from PyPSA network files and store them as more accessible csv
+rule extract_results:
+    input:
+        network="results/{whatever}/network.nc",
+    output:
+        csv="results/{whatever}/results.csv",
+    threads: 1
+    notebook:
+        "notebooks/extract_results.py.ipynb"
+
+
+rule plot_all:
+    input:
+        rules.plot_all_system_costs.output,
+        rules.plot_all_pgp_sensitivities.output,

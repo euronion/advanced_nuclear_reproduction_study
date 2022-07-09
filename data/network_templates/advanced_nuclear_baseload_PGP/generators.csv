@@ -1,0 +1,5 @@
+name,bus,p_nom_extendable,carrier,p_min_pu,p_max_pu
+nuclear heat source,heat,True,nuclear,1,1
+natural gas,electricity,True,natural gas,0,1
+natural gas with CCS,electricity,True,natural gas,0,1
+load shedding,electricity,True,load shedding,0,1

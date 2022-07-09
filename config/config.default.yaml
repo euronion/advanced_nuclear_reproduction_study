@@ -1,0 +1,26 @@
+# Whether to emulate the behaviour found in the model source code of the original paper
+# true - emulate the model behaviour
+# false - do not emulate the model behaviour; use our own assumptions on what we consider adequate or expect based on the paper
+emulate_original_paper: true
+
+pgp_sensitivities:
+  # Number of pgp_factors to calculate for the pgp factor variation scenarios
+  pgp_factors: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+system_costs:
+  co2limits: [1, 0.94, 0.88, 0.82, 0.76, 0.7, 0.64, 0.58, 0.52, 0.46, 0.4, 0.36, 0.32, 0.28, 0.24, 0.20, 0.16, 0.12, 0.1, 0.06, 0.02, 0.01, 0.001, 0.0001, 0.00001, 0]
+  # Original co2limits from publication in %; use lower resolution for now, see above
+  # co2limits: [1e24, 98, 96, 94, 92, 90, 88, 86, 84, 82, 80, 78, 76, 74, 72, 70, 68, 66, 64, 62, 60, 58, 56, 54, 52, 50, 48, 46, 44, 42, 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8,  6,  4,  2,  1, 0.1, 0.01, 0.001, 0]
+
+plotting:
+  colors:
+    "Natural gas": "black"
+    "Natural gas with CCS": "#808080"
+    "Solar": "#f5deb3"
+    "Wind": "#87ceeb"
+    "Battery storage": "#f296e7"
+    "Unmet demand": "#5f9ea0"
+    "Advanced nuclear": "#ff6347" # alt.: "#CC252C"
+    "Nuclear": "#ff6347"
+    "TES plus extra generator": "#4b0082"
+    "PGP": "#007f00"

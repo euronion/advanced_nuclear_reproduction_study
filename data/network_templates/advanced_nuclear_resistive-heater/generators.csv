@@ -1,0 +1,5 @@
+name,bus,p_nom_extendable,carrier
+nuclear heat source,heat,True,nuclear
+natural gas,electricity,True,natural gas
+natural gas with CCS,electricity,True,natural gas
+load shedding,electricity,True,load shedding

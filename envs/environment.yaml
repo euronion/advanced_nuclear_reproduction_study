@@ -1,0 +1,26 @@
+name: advanced-nuclear
+channels:
+- conda-forge
+- bioconda
+- gurobi
+dependencies:
+- python>=3.8
+- pip
+
+- pypsa>=0.18.1
+- notebook
+- nbconvert
+- jupyter
+- snakemake-minimal
+- snakefmt
+- yaml
+- pandas
+- numpy
+- xarray
+- netcdf4
+- matplotlib
+- seaborn
+- hvplot
+- pre-commit
+- ipython
+- gurobi

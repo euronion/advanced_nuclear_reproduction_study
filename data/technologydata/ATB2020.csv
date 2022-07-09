@@ -1,0 +1,106 @@
+name,parameter,unit,value,note
+discount rate,discount rate,%/a,7,
+reference emissions,reference emissions,t_CO2/MWh_e,0.49,Reference specific emissions to calculate the CO2 constraint. In the original model by Duan et al. these are the specific emissions for electricity generation from natural gas.
+wind,investment,USD/kW_e,1369,CAPEX “Conservative” 2020
+wind,FOM,USD/kW_e/a,43,Fixed Operation and Maintenance Expenses “Conservative” 2020
+wind,lifetime,years,30,Technology Life
+wind,VOM,USD/MWh_e,0,Variable Operation and Maintenance Expenses “Conservative” 2020
+wind,fuel cost,USD/MWh_e,0,-
+wind,efficiency,p.u.,1,-
+solar,investment,USD/kW_e,1377,CAPEX “Conservative” 2050
+solar,FOM,USD/kW_e/a,23,Fixed Operation and Maintenance Expenses “Conservative” 2020
+solar,lifetime,years,30,Technology Life
+solar,VOM,USD/MWh_e,0,Variable Operation and Maintenance Expenses “Conservative” 2020
+solar,fuel cost,USD/MWh_e,0,-
+solar,efficiency,p.u.,1,-
+battery storage,investment,USD/kWh_e,277,CAPEX “Conservative” 2020
+battery storage,FOM,USD/kWh_e/a,6.925,Calculated in ATB as 2.5% of CAPEX
+battery storage,lifetime,years,15,From “Future Projections” “For 15-years life …”
+battery storage,VOM,USD/MWh_e,1.00E-05,cf. with var_cost of 1e-8 per kWh_e in original model
+battery storage,fuel cost,USD/MWh_e,0,-
+battery storage,efficiency,p.u.,1,-
+battery storage,standing losses,p.u./snapshot,0,-
+battery charge,investment,USD/kW_e,257,CAPEX “Conservative” 2020
+battery charge,FOM,USD/kW_e/a,6.425,Calculated in ATB as 2.5% of CAPEX
+battery charge,lifetime,years,15,From “Future Projections” “For 15-years life …”
+battery charge,VOM,USD/MWh_e,0,VOM “Conservative” 2020
+battery charge,fuel cost,USD/MWh_e,0,-
+battery charge,efficiency,p.u.,0.922,To match “Round Trip efficiency” from ATB together with battery dis-/charge. (=sqrt(0.85) )
+battery discharge,investment,USD/kW_e,0,Priced into battery charge already
+battery discharge,FOM,USD/kW_e/a,0,Priced into battery charge already
+battery discharge,lifetime,years,0,-
+battery discharge,VOM,USD/MWh_e,0,VOM “Conservative” 2020
+battery discharge,fuel cost,USD/MWh_e,0,-
+battery discharge,efficiency,p.u.,0.922,To match “Round Trip efficiency” from ATB together with battery dis-/charge. (=sqrt(0.85) )
+nuclear,investment,USD/kW_e,7334,“Moderate scenario” CAPEX 2020
+nuclear,FOM,USD/kW_e/a,145,“Moderate scenario” 2020
+nuclear,lifetime,years,60,Technology Life
+nuclear,VOM,USD/MWh_e,2,“Moderate scenario” 2020
+nuclear,fuel cost,USD/MWh_e,7,“Moderate scenario” 2020
+nuclear,efficiency,p.u.,1,-
+nuclear heat source,investment,USD/kW_th,1416.58,"Use same ratio as for EIA scenario from original paper for generator / nuclear heat source, i.e. 48.29% CAPEX for generator, 51.71% for nuclear heat source and consider heat to electricity efficiency."
+nuclear heat source,FOM,USD/kW_th/a,27.8,"Use same ratio as for EIA scenario from original paper for generator / nuclear heat source, i.e. 48.29% CAPEX for generator, 51.71% for nuclear heat source and consider heat to electricity efficiency."
+nuclear heat source,lifetime,years,60,
+nuclear heat source,VOM,USD/MWh_th,0.38,"Use same ratio as for EIA scenario from original paper for generator / nuclear heat source, i.e. 48.29% CAPEX for generator, 51.71% for nuclear heat source and consider heat to electricity efficiency."
+nuclear heat source,fuel cost,USD/MWh_th,2.6,Consider heat to electricity efficiency from generator
+nuclear heat source,efficiency,p.u.,1,Keep values from original paper.
+nuclear heat storage,investment,USD/kWh_th,27.61,Keep values from original paper.
+nuclear heat storage,FOM,USD/kWh_th/a,0,Keep values from original paper.
+nuclear heat storage,lifetime,years,30,Keep values from original paper.
+nuclear heat storage,VOM,USD/MWh_th,0.00000371,Keep values from original paper.
+nuclear heat storage,fuel cost,USD/MWh_th,0,Keep values from original paper.
+nuclear heat storage,standing losses,p.u./snapshot,0.00000261,Keep values from original paper.
+nuclear generator,investment,USD/kW_e,3567.67,"Use same ratio as for EIA scenario from original paper for generator / nuclear heat source, i.e. 48.29% CAPEX for generator, 51.71% for nuclear heat source."
+nuclear generator,FOM,USD/kW_e/a,70.0205,
+nuclear generator,lifetime,years,30,
+nuclear generator,VOM,USD/MWh_e,0.966,"Use same ratio as for EIA scenario from original paper for generator / nuclear heat source, i.e. 48.29% CAPEX for generator, 51.71% for nuclear heat source."
+nuclear generator,fuel cost,USD/MWh_e,0,
+nuclear generator,efficiency,p.u.,0.371,
+natural gas,investment,USD/kW_e,1049,CAPEX GAS-CC-HighCF “Conservative” 2020
+natural gas,FOM,USD/kW_e/a,27,FOM GAS-CC-HighCF “Conservative” 2020
+natural gas,lifetime,years,30,Capital Recovery Period as proxy for technical lifetime
+natural gas,VOM,USD/MWh_e,2,VOM GAS-CC-HighCF “Conservative” 2020
+natural gas,fuel cost,USD/MWh_e,19.293,from “MASTER_cost_assumptions.xlsx” of original Duan et al paper. Not found in ATB. Cell G23 of sheet “Lei’s cost”.
+natural gas,efficiency,p.u.,0.5365,Fuel (“carrier”: natural gas) to electricity efficiency.
+natural gas with CCS,investment,USD/kW_e,2670,CAPEX GAS-CC-CCS-HighCF “Conservative” 2020
+natural gas with CCS,FOM,USD/kW_e/a,65,FOM GAS-CC-CCS-HighCF “Conservative” 2020
+natural gas with CCS,lifetime,years,30,Capital Recovery Period as proxy for technical lifetime
+natural gas with CCS,VOM,USD/MWh_e,6,VOM GAS-CC-CCS-HighCF “Conservative” 2020
+natural gas with CCS,fuel cost,USD/MWh_e,21.372,from “MASTER_cost_assumptions.xlsx” of original Duan et al paper. Not found in ATB. Cell E23 of sheet “Lei’s cost”.
+natural gas with CCS,efficiency,p.u.,1.5464,"Modified efficiency to represent lower CO2 emissions: For a quick & dirty implementation of lower CO2 emissions from NG+CCS power plant assume a higher “natural gas to electricity” efficiency, such that electricity generation happens at lower specific emissions (original specific emissions of NG without CCS: 0.47 t_CO2 / MWh_e; with CCS: 0.17 t_CO2/Mwh_e)."
+load shedding,investment,USD/kW_e,0,
+load shedding,FOM,USD/kW_e/a,0,
+load shedding,lifetime,years,0,
+load shedding,VOM,USD/MWh_e,0,
+load shedding,fuel cost,USD/MWh_e,10000,
+load shedding,efficiency,p.u.,1,
+resistive heater,investment,USD/kW_e,0.000001168,Based on fixed_cost 1e-11
+resistive heater,FOM,USD/kW_e/a,0,
+resistive heater,lifetime,years,40,Assumed
+resistive heater,VOM,USD/MWh_e,0,
+resistive heater,fuel cost,USD/MWh_e,0,
+resistive heater,efficiency,p.u.,1,
+load shifting,investment,USD/kW_e,0,
+load shifting,FOM,USD/kW_e/a,0,
+load shifting,lifetime,years,1,
+load shifting,VOM,USD/MWh_e,300,
+load shifting,fuel cost,USD/MWh_e,0,
+load shifting,efficiency,p.u.,1,
+H2 electrolysis,investment,USD/kW_H2,1406.25,900 USD/kW_e and efficiency. Based on “Future of Hydrogen” IEA (2019) Annex “Production pathways”.
+H2 electrolysis,FOM,USD/kW_H2/a,21.09375,1.5%. Based on “Future of Hydrogen” IEA (2019) Annex “Production pathways”.
+H2 electrolysis,lifetime,years,10,For simplicity assume stack lifetime = plant lifetime. Based on “Future of Hydrogen” IEA (2019) Annex “Production pathways”.
+H2 electrolysis,VOM,USD/MWh_H2,0,Based on “Future of Hydrogen” IEA (2019) Annex “Production pathways”.
+H2 electrolysis,fuel cost,USD/MWh_H2,0,Based on “Future of Hydrogen” IEA (2019) Annex “Production pathways”.
+H2 electrolysis,efficiency,p.u.,0.64,Based on “Future of Hydrogen” IEA (2019) Annex “Production pathways”.
+H2 cavern storage,investment,USD/kWh_H2,0.25,Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”.
+H2 cavern storage,FOM,USD/kWh_H2/a,0,Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”.
+H2 cavern storage,lifetime,years,20,Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”.
+H2 cavern storage,VOM,USD/MWh_H2,0,Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”.
+H2 cavern storage,fuel cost,USD/MWh_H2,0,Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”.
+H2 cavern storage,standing losses,p.u./snapshot,0,Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”.
+H2 fuel cell,investment,USD/kW_e,1820,"TODO: Probably wrong, unsure if P2G2P or only G2P. Probably turbine and not fuel cell. No direct reference found. Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”."
+H2 fuel cell,FOM,USD/kW_e/a,72,"TODO: Probably wrong, unsure if P2G2P or only G2P. Probably turbine and not fuel cell. No direct reference found. Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”."
+H2 fuel cell,lifetime,years,20,"TODO: Probably wrong, unsure if P2G2P or only G2P. Probably turbine and not fuel cell. No direct reference found. Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”."
+H2 fuel cell,VOM,USD/MWh_e,0,"TODO: Probably wrong, unsure if P2G2P or only G2P. Probably turbine and not fuel cell. No direct reference found. Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”."
+H2 fuel cell,fuel cost,USD/MWh_e,0,"TODO: Probably wrong, unsure if P2G2P or only G2P. Probably turbine and not fuel cell. No direct reference found. Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”."
+H2 fuel cell,efficiency,p.u.,0.578125,"Assuming the 37% in the IEA report is P2G2P, increasing G2P efficiency by electrolysis efficiency. Number probably for turbine and not fuel cell. No direct reference found. Based on “Future of Hydrogen” IEA (2019) Annex “Large-scale and long-term storage”."

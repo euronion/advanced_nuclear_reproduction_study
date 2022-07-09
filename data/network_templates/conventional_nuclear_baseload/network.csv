@@ -1,0 +1,2 @@
+name,pypsa_version
+"Network containing wind+PV+battery+NGPP+NGPP with CCS+Advanced nuclear design (decoupled fission reactor, TES, turbine “generator”).",0.19.2

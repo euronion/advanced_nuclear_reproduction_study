@@ -1,0 +1,4 @@
+name,bus,e_nom_extendable,e_cyclic
+battery storage,battery,True,True
+nuclear heat storage,heat,True,True
+load shifting,electricity,True,True

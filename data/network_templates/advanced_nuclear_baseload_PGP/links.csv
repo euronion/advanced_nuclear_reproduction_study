@@ -1,0 +1,6 @@
+name,bus0,bus1,p_nom_extendable
+battery charge,electricity,battery,True
+battery discharge,battery,electricity,True
+nuclear generator,heat,electricity,True
+H2 electrolysis,electricity,hydrogen,True
+H2 fuel cell,hydrogen,electricity,True
